@@ -3,6 +3,8 @@ version: "3.0"
 volumes:
   db-data:
     external: false
+  maven-deps:
+    external: false
 
 services:
 
@@ -22,6 +24,7 @@ services:
       - "db:mariadb"
     volumes:
       - .:/code
+      - maven-deps:/root/.m2
     ports:
       - "8180:8180"
       - "8443:8443"
